@@ -2,6 +2,26 @@
 	"name": "Main Screen",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "SpinningFactor",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 705593536108140
+		},
+		{
+			"eventType": "variable",
+			"name": "Capitalism",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 741507199133125
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "Common"
 		},
@@ -17,7 +37,7 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "Bullet",
+							"objectClass": "GhostBullet",
 							"sid": 351567902288285,
 							"parameters": {
 								"object": "Target"
@@ -27,7 +47,7 @@
 					"actions": [
 						{
 							"id": "destroy",
-							"objectClass": "Bullet",
+							"objectClass": "GhostBullet",
 							"sid": 458546660409134
 						},
 						{
@@ -42,19 +62,19 @@
 						{
 							"id": "set-speed",
 							"objectClass": "Target",
-							"sid": 881849246262320,
+							"sid": 664832666155179,
 							"behaviorType": "Rotate",
 							"parameters": {
-								"speed": "720"
+								"speed": "720 * SpinningFactor"
 							}
 						},
 						{
 							"id": "set-acceleration",
 							"objectClass": "Target",
-							"sid": 246867686794447,
+							"sid": 743211789323808,
 							"behaviorType": "Rotate",
 							"parameters": {
-								"acceleration": "-180"
+								"acceleration": "-180 * SpinningFactor"
 							}
 						}
 					],
@@ -66,9 +86,9 @@
 						{
 							"id": "compare-two-values",
 							"objectClass": "System",
-							"sid": 169340518630563,
+							"sid": 577193802519364,
 							"parameters": {
-								"first-value": "Target.Rotate.Speed",
+								"first-value": "Target.Rotate.Speed * SpinningFactor",
 								"comparison": 3,
 								"second-value": "0"
 							}
@@ -755,7 +775,7 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
-							"objectClass": "Bullet",
+							"objectClass": "GhostBullet",
 							"sid": 181579826956021,
 							"parameters": {
 								"object": "Pacman"
@@ -765,7 +785,7 @@
 					"actions": [
 						{
 							"id": "destroy",
-							"objectClass": "Bullet",
+							"objectClass": "GhostBullet",
 							"sid": 743906791147239
 						}
 					],
@@ -849,6 +869,15 @@
 									"id": "destroy",
 									"objectClass": "Pacman",
 									"sid": 854327065941495
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 803995667209919,
+									"parameters": {
+										"variable": "Capitalism",
+										"value": "false"
+									}
 								}
 							],
 							"sid": 500992176796242
@@ -898,6 +927,101 @@
 				}
 			],
 			"sid": 545662020519561
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Revolution",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 658633898643770,
+							"parameters": {
+								"variable": "Capitalism"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Rainbow",
+							"sid": 937969787171917,
+							"parameters": {
+								"opacity": "0"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Target",
+							"sid": 176893790851013,
+							"parameters": {
+								"animation": "\"Capitalism\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 613267172224391,
+							"parameters": {
+								"variable": "SpinningFactor",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 764929986508488
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 803531202327374,
+							"parameters": {
+								"variable": "Capitalism"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-opacity",
+							"objectClass": "Rainbow",
+							"sid": 318643377802466,
+							"parameters": {
+								"opacity": "Rainbow.Opacity + dt"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Target",
+							"sid": 735461602740330,
+							"parameters": {
+								"animation": "\"Socialism\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 349175920781486,
+							"parameters": {
+								"variable": "SpinningFactor",
+								"value": "-1.5"
+							}
+						}
+					],
+					"sid": 339858397313295
+				}
+			],
+			"sid": 729044339860818
 		}
 	],
 	"sid": 210889906595872

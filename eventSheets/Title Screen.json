@@ -10,8 +10,8 @@
 			"conditions": [
 				{
 					"id": "on-collision-with-another-object",
-					"objectClass": "Bullet",
-					"sid": 307072189299624,
+					"objectClass": "GhostBullet",
+					"sid": 817090020807240,
 					"parameters": {
 						"object": "Target"
 					}
@@ -20,8 +20,8 @@
 			"actions": [
 				{
 					"id": "destroy",
-					"objectClass": "Bullet",
-					"sid": 228440172633850
+					"objectClass": "GhostBullet",
+					"sid": 298685624694632
 				},
 				{
 					"id": "go-to-layout-by-name",

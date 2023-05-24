@@ -55,8 +55,8 @@
 						}
 					},
 					"world": {
-						"x": 88,
-						"y": 840,
+						"x": 1020,
+						"y": 476,
 						"width": 128,
 						"height": 64,
 						"originX": 0.5,
@@ -91,8 +91,8 @@
 						}
 					},
 					"world": {
-						"x": 228,
-						"y": 840,
+						"x": 1312,
+						"y": 472,
 						"width": 128,
 						"height": 64,
 						"originX": 0.5,
@@ -127,8 +127,8 @@
 						}
 					},
 					"world": {
-						"x": 376,
-						"y": 844,
+						"x": 1088,
+						"y": 856,
 						"width": 128,
 						"height": 64,
 						"originX": 0.5,
@@ -163,8 +163,8 @@
 						}
 					},
 					"world": {
-						"x": 528,
-						"y": 840,
+						"x": 1012,
+						"y": 740,
 						"width": 128,
 						"height": 64,
 						"originX": 0.5,
@@ -199,12 +199,56 @@
 						}
 					},
 					"world": {
-						"x": 676,
-						"y": 836,
+						"x": 1032,
+						"y": 612,
 						"width": 128,
 						"height": 64,
 						"originX": 0.5,
 						"originY": 0.515625,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Rainbow",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 13,
+					"instanceVariables": {},
+					"behaviors": {
+						"Sine": {
+							"properties": {
+								"movement": "size",
+								"wave": "sine",
+								"period": 4,
+								"period-random": 0,
+								"period-offset": 0,
+								"period-offset-random": 0,
+								"magnitude": 5,
+								"magnitude-random": 0,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 360,
+						"y": 364,
+						"width": 700,
+						"height": 700,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -952,7 +996,7 @@
 					"type": "Target",
 					"properties": {
 						"initially-visible": true,
-						"initial-animation": "Animation 1",
+						"initial-animation": "Capitalism",
 						"initial-frame": 0,
 						"enable-collisions": true,
 						"live-preview": false
@@ -1692,7 +1736,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 25,
+					"uid": 60,
 					"instanceVariables": {},
 					"behaviors": {
 						"Bullet": {
@@ -1702,19 +1746,16 @@
 								"gravity": 0,
 								"bounce-off-solids": true,
 								"set-angle": true,
-								"step": true,
+								"step": false,
 								"enabled": true
 							}
-						},
-						"DestroyOutsideLayout": {
-							"properties": {}
 						}
 					},
 					"world": {
-						"x": -608,
-						"y": 864,
-						"width": 5,
-						"height": 5,
+						"x": 1188,
+						"y": 472,
+						"width": 16,
+						"height": 32,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [

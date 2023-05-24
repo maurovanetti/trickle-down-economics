@@ -99,13 +99,6 @@
 		},
 		{
 			"type": "behavior",
-			"id": "destroy",
-			"name": "Destroy outside layout",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
 			"id": "jumpthru",
 			"name": "Jump-thru",
 			"author": "Scirra",
@@ -132,7 +125,6 @@
 			"Platform",
 			"Avatar",
 			"Eye",
-			"GhostBullet",
 			"Target",
 			"Barrier",
 			"Fruit",
@@ -146,7 +138,9 @@
 			"HungerBar",
 			"Worker",
 			"Nest",
-			"Brick"
+			"Brick",
+			"GhostBullet",
+			"Rainbow"
 		],
 		"subfolders": [
 			{
@@ -185,7 +179,6 @@
 			"Jumpthru",
 			"Ghost",
 			"Button",
-			"Bullet",
 			"Solid",
 			"Money",
 			"Pacman"
@@ -369,5 +362,5 @@
 	},
 	"viewportWidth": 720,
 	"viewportHeight": 1280,
-	"firstLayout": null
+	"firstLayout": "Title Screen"
 }

@@ -19,7 +19,6 @@
 					],
 					"actions": [],
 					"sid": 584473541749551,
-					"disabled": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -40,30 +39,7 @@
 									"sid": 818846577423332
 								}
 							],
-							"sid": 438715992724071,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Bullet",
-									"sid": 392992902370516,
-									"parameters": {
-										"object": "SetupArea"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Bullet",
-									"sid": 661002751832757
-								}
-							],
-							"sid": 173183456007396,
-							"disabled": true
+							"sid": 438715992724071
 						},
 						{
 							"eventType": "block",
@@ -84,30 +60,7 @@
 									"sid": 449899292693670
 								}
 							],
-							"sid": 490236832816773,
-							"disabled": true
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "is-overlapping-another-object",
-									"objectClass": "Bullet",
-									"sid": 712209917020423,
-									"parameters": {
-										"object": "SetupArea"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "destroy",
-									"objectClass": "Bullet",
-									"sid": 345171569996842
-								}
-							],
-							"sid": 229476130483803,
-							"disabled": true
+							"sid": 490236832816773
 						}
 					]
 				}
