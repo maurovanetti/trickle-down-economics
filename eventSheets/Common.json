@@ -482,14 +482,14 @@
 						{
 							"id": "on-start-of-layout",
 							"objectClass": "System",
-							"sid": 504565944119004
+							"sid": 616790624844926
 						}
 					],
 					"actions": [
 						{
 							"id": "pin-to-object-imagepoint",
 							"objectClass": "ShootDirection",
-							"sid": 840393821896201,
+							"sid": 636183008654989,
 							"behaviorType": "Pin",
 							"parameters": {
 								"pin-to": "Shoot",
@@ -501,44 +501,172 @@
 							}
 						}
 					],
-					"sid": 113752178071240
+					"sid": 546292851047301
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-touching-object",
-							"objectClass": "Touch",
-							"sid": 382397230459992,
-							"parameters": {
-								"object": "Button"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Button",
-							"sid": 275825456668996,
-							"parameters": {
-								"animation": "\"On\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 242140147092672,
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 972312253135812,
+									"parameters": {
+										"object": "Button"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Button",
+									"sid": 808177016948093,
+									"parameters": {
+										"animation": "\"Off\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 450945482319925
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 988516083886726,
+									"parameters": {
+										"object": "Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Button",
+									"sid": 729117565276274,
+									"parameters": {
+										"animation": "\"On\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 290565058668222,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 886200978119747,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Right\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Avatar",
+											"sid": 649680325129120,
+											"parameters": {
+												"instance-variable": "GoingRight",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 835476965766237
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 232692275434026,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Left\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Avatar",
+											"sid": 918490380269363,
+											"parameters": {
+												"instance-variable": "GoingRight",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 135319425710409
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-touched-object",
+									"objectClass": "Touch",
+									"sid": 107692233427819,
+									"parameters": {
+										"object": "Button"
+									}
+								},
+								{
 									"id": "compare-instance-variable",
 									"objectClass": "Button",
-									"sid": 354269055975678,
+									"sid": 728014643380181,
 									"parameters": {
 										"instance-variable": "Command",
 										"comparison": 0,
-										"value": "\"Right\""
+										"value": "\"Shoot\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "OpenFire",
+									"objectClass": "Avatar",
+									"sid": 674804081497670
+								}
+							],
+							"sid": 290934266990987
+						}
+					],
+					"sid": 102152394232997
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Keyboard",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 771257457990819,
+									"parameters": {
+										"key": 39
 									}
 								}
 							],
@@ -546,26 +674,53 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Avatar",
-									"sid": 413712689942087,
+									"sid": 309896925237966,
 									"parameters": {
 										"instance-variable": "GoingRight",
 										"value": "true"
 									}
 								}
 							],
-							"sid": 843202308434840
+							"sid": 708208837916075,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 999639185214409,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Right\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Button",
+											"sid": 314517756487600,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 473497915128182
+								}
+							]
 						},
 						{
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "compare-instance-variable",
-									"objectClass": "Button",
-									"sid": 903938643089452,
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 326298450308049,
 									"parameters": {
-										"instance-variable": "Command",
-										"comparison": 0,
-										"value": "\"Left\""
+										"key": 37
 									}
 								}
 							],
@@ -573,144 +728,327 @@
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Avatar",
-									"sid": 373895608954738,
+									"sid": 431333586987461,
 									"parameters": {
 										"instance-variable": "GoingRight",
 										"value": "false"
 									}
 								}
 							],
-							"sid": 943415710453298
-						}
-					]
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-touching-object",
-							"objectClass": "Touch",
-							"sid": 382558717815074,
-							"parameters": {
-								"object": "Button"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Button",
-							"sid": 542593242017179,
-							"parameters": {
-								"animation": "\"Off\"",
-								"from": "beginning"
-							}
-						}
-					],
-					"sid": 688839139901876
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 321626283012698,
-							"parameters": {
-								"key": 39
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Avatar",
-							"sid": 801141336218288,
-							"parameters": {
-								"instance-variable": "GoingRight",
-								"value": "true"
-							}
-						}
-					],
-					"sid": 359076034342209
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 498729177713978,
-							"parameters": {
-								"key": 37
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-boolean-instvar",
-							"objectClass": "Avatar",
-							"sid": 575521320775096,
-							"parameters": {
-								"instance-variable": "GoingRight",
-								"value": "false"
-							}
-						}
-					],
-					"sid": 230185721812127
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-key-pressed",
-							"objectClass": "Keyboard",
-							"sid": 724398208364968,
-							"parameters": {
-								"key": 38
-							}
-						}
-					],
-					"actions": [
-						{
-							"customAction": "OpenFire",
-							"objectClass": "Avatar",
-							"sid": 606966419294072
-						}
-					],
-					"sid": 509120576332666
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-touched-object",
-							"objectClass": "Touch",
-							"sid": 955692374387780,
-							"parameters": {
-								"object": "Button"
-							}
+							"sid": 420394035041443,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 935051251752186,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Left\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Button",
+											"sid": 598272708326211,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 872230066252732
+								}
+							]
 						},
 						{
-							"id": "compare-instance-variable",
-							"objectClass": "Button",
-							"sid": 420294842181206,
-							"parameters": {
-								"instance-variable": "Command",
-								"comparison": 0,
-								"value": "\"Shoot\""
-							}
-						}
-					],
-					"actions": [
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "key-is-down",
+									"objectClass": "Keyboard",
+									"sid": 177412006464814,
+									"parameters": {
+										"key": 38
+									}
+								}
+							],
+							"actions": [],
+							"sid": 915719786103557,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 858467322850450,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Shoot\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Button",
+											"sid": 711957486187592,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 848564253457713
+								}
+							]
+						},
 						{
-							"customAction": "OpenFire",
-							"objectClass": "Avatar",
-							"sid": 490111557610176
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 872800921414805,
+									"parameters": {
+										"key": 38
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "OpenFire",
+									"objectClass": "Avatar",
+									"sid": 368347903014111
+								}
+							],
+							"sid": 358133913488118
 						}
 					],
-					"sid": 603162066233442
+					"sid": 763967061658550
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Gamepad",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-axis",
+									"objectClass": "Gamepad",
+									"sid": 340324407208718,
+									"parameters": {
+										"gamepad": "0",
+										"axis": "left-analog-x-axis",
+										"comparison": 4,
+										"value": "25"
+									}
+								},
+								{
+									"id": "compare-axis",
+									"objectClass": "Gamepad",
+									"sid": 969218030865700,
+									"parameters": {
+										"gamepad": "0",
+										"axis": "right-analog-x-axis",
+										"comparison": 4,
+										"value": "25"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Avatar",
+									"sid": 893119246350535,
+									"parameters": {
+										"instance-variable": "GoingRight",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 142717675131674,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 800599360412104,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Right\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Button",
+											"sid": 425130207551568,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 442310142207388
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-axis",
+									"objectClass": "Gamepad",
+									"sid": 581239621073279,
+									"parameters": {
+										"gamepad": "0",
+										"axis": "left-analog-x-axis",
+										"comparison": 2,
+										"value": "-25"
+									}
+								},
+								{
+									"id": "compare-axis",
+									"objectClass": "Gamepad",
+									"sid": 505495030409532,
+									"parameters": {
+										"gamepad": "0",
+										"axis": "right-analog-x-axis",
+										"comparison": 2,
+										"value": "-25"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Avatar",
+									"sid": 676928861923496,
+									"parameters": {
+										"instance-variable": "GoingRight",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 496276885057122,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 464383539558602,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Left\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Button",
+											"sid": 649767703489153,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 306542191324029
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-button-pressed",
+									"objectClass": "Gamepad",
+									"sid": 485489233419690,
+									"parameters": {
+										"gamepad": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "OpenFire",
+									"objectClass": "Avatar",
+									"sid": 996345145668416
+								}
+							],
+							"sid": 148535631121502
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 258762910672328,
+									"parameters": {
+										"first-value": "Gamepad.Button(0, Gamepad.ButtonIndex)",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 739124028974071,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 769890476240547,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Shoot\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "Button",
+											"sid": 760706550475511,
+											"parameters": {
+												"animation": "\"On\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 823627311587460
+								}
+							],
+							"isOrBlock": true
+						}
+					],
+					"sid": 540266167392403
 				}
 			],
 			"sid": 738377065077311

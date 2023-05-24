@@ -49,6 +49,13 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "gamepad",
+			"name": "Gamepad",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -150,7 +157,8 @@
 					"ShootDirection",
 					"ToLeft",
 					"ToRight",
-					"Touch"
+					"Touch",
+					"Gamepad"
 				],
 				"subfolders": [],
 				"name": "Controls"
@@ -318,7 +326,7 @@
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-integer-scale",
+		"fullscreenMode": "letterbox-scale",
 		"fullscreenQuality": "low",
 		"viewportFit": "auto",
 		"backgroundColor": [
