@@ -106,6 +106,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "jumpthru",
 			"name": "Jump-thru",
 			"author": "Scirra",
@@ -122,6 +129,13 @@
 			"type": "behavior",
 			"id": "wrap",
 			"name": "Wrap",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "toon",
+			"name": "Toon",
 			"author": "Scirra",
 			"bundled": false
 		}

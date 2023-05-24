@@ -24,15 +24,46 @@
 					"sid": 298685624694632
 				},
 				{
+					"id": "tween-two-properties",
+					"objectClass": "Target",
+					"sid": 318021229426483,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"\"",
+						"property": "scale",
+						"end-x": "20",
+						"end-y": "20",
+						"time": "2",
+						"ease": "noease",
+						"destroy-on-complete": "yes",
+						"loop": "no",
+						"ping-pong": "no",
+						"repeat-count": "1"
+					}
+				}
+			],
+			"sid": 909741445488482
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-destroyed",
+					"objectClass": "Target",
+					"sid": 755938575636983
+				}
+			],
+			"actions": [
+				{
 					"id": "go-to-layout-by-name",
 					"objectClass": "System",
-					"sid": 612607962993114,
+					"sid": 848605268393961,
 					"parameters": {
 						"layout": "\"Main Screen\""
 					}
 				}
 			],
-			"sid": 909741445488482
+			"sid": 499317501583258
 		}
 	],
 	"sid": 578148612561687
