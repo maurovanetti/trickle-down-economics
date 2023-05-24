@@ -1,0 +1,22 @@
+{
+	"name": "Jumpthru",
+	"plugin-id": "NinePatch",
+	"sid": 336372559966545,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "jumpthru",
+			"name": "Jumpthru",
+			"sid": 437515219623726
+		},
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 229316131609944
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Platform"
+	]
+}

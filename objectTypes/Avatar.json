@@ -1,0 +1,153 @@
+{
+	"name": "Avatar",
+	"plugin-id": "Sprite",
+	"sid": 137839860189111,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 494895,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Right Eye",
+								"x": 0.5,
+								"y": 0.5
+							},
+							{
+								"name": "Left Eye",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Shooter",
+								"x": 0.5,
+								"y": 0.375
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4141412,
+						"collisionPoly": {
+							"points": [
+								1,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Right Eye",
+								"x": 0.5,
+								"y": 0.5
+							},
+							{
+								"name": "Left Eye",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Shooter",
+								"x": 0.5,
+								"y": 0.375
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 563544,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Right Eye",
+								"x": 0.5,
+								"y": 0.5
+							},
+							{
+								"name": "Left Eye",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Shooter",
+								"x": 0.5,
+								"y": 0.375
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7848871,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Right Eye",
+								"x": 0.5,
+								"y": 0.5
+							},
+							{
+								"name": "Left Eye",
+								"x": 1,
+								"y": 0.5
+							},
+							{
+								"name": "Shooter",
+								"x": 0.5,
+								"y": 0.375
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 997792970662800,
+				"name": "Animation 1",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 10
+			}
+		],
+		"subfolders": []
+	}
+}

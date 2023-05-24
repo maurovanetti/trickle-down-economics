@@ -1,0 +1,50 @@
+{
+	"name": "Target",
+	"plugin-id": "Sprite",
+	"sid": 760291053833755,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Rotate",
+			"name": "Rotate",
+			"sid": 335350438506134
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 128,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3801528,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Dropper",
+								"x": 0.96875,
+								"y": 0.9765625
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 752670678383759,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,119 @@
+{
+	"name": "Fruit",
+	"plugin-id": "Sprite",
+	"sid": 453709601545361,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 17,
+						"height": 17,
+						"originX": 0.47058823529411764,
+						"originY": 0.47058823529411764,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9261533,
+						"collisionPoly": {
+							"points": [
+								0.058823529411764705,
+								0.058823529411764705,
+								1,
+								0.058823529411764705,
+								1,
+								1,
+								0.058823529411764705,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 992475816090281,
+				"name": "Purpleberry",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 17,
+						"height": 17,
+						"originX": 0.47058823529411764,
+						"originY": 0.47058823529411764,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3569219,
+						"collisionPoly": {
+							"points": [
+								0.058823529411764705,
+								0.058823529411764705,
+								1,
+								0.058823529411764705,
+								1,
+								1,
+								0.058823529411764705,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 284770611514082,
+				"name": "Blueberry",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			},
+			{
+				"frames": [
+					{
+						"width": 17,
+						"height": 17,
+						"originX": 0.47058823529411764,
+						"originY": 0.47058823529411764,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6520556,
+						"collisionPoly": {
+							"points": [
+								0.058823529411764705,
+								0.058823529411764705,
+								1,
+								0.058823529411764705,
+								1,
+								1,
+								0.058823529411764705,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 244312136251074,
+				"name": "Hazelberry",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

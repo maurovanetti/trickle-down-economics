@@ -1,0 +1,17 @@
+{
+	"name": "Money",
+	"plugin-id": "Sprite",
+	"sid": 485190271505150,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 364736656885460
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Fruit"
+	]
+}

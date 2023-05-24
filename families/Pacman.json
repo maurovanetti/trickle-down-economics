@@ -1,0 +1,25 @@
+{
+	"name": "Pacman",
+	"plugin-id": "Sprite",
+	"sid": 159545776049291,
+	"instanceVariables": [
+		{
+			"name": "GoingRight",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 807961514612342
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 784876195251145
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Bourgeois"
+	]
+}

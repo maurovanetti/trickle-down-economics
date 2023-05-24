@@ -1,0 +1,21 @@
+{
+	"name": "Button",
+	"plugin-id": "Sprite",
+	"sid": 408253551599129,
+	"instanceVariables": [
+		{
+			"name": "Command",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 465014976828906
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"ToLeft",
+		"ToRight",
+		"Shoot"
+	]
+}

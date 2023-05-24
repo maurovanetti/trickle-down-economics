@@ -1,0 +1,30 @@
+{
+	"name": "Ghost",
+	"plugin-id": "Sprite",
+	"sid": 196205580698960,
+	"instanceVariables": [
+		{
+			"name": "GoingRight",
+			"type": "boolean",
+			"desc": "true = right, false = left",
+			"show": true,
+			"sid": 730788325934074
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 732609089092904
+		},
+		{
+			"behaviorId": "wrap",
+			"name": "Wrap",
+			"sid": 526771537981070
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Avatar"
+	]
+}

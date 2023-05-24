@@ -1,0 +1,705 @@
+{
+	"name": "Main Screen",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Common"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Spinning Target",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Bullet",
+							"sid": 351567902288285,
+							"parameters": {
+								"object": "Target"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Bullet",
+							"sid": 458546660409134
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Target",
+							"sid": 807623712036466,
+							"behaviorType": "Rotate",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "Target",
+							"sid": 881849246262320,
+							"behaviorType": "Rotate",
+							"parameters": {
+								"speed": "720"
+							}
+						},
+						{
+							"id": "set-acceleration",
+							"objectClass": "Target",
+							"sid": 246867686794447,
+							"behaviorType": "Rotate",
+							"parameters": {
+								"acceleration": "-180"
+							}
+						}
+					],
+					"sid": 720277819793033
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 169340518630563,
+							"parameters": {
+								"first-value": "Target.Rotate.Speed",
+								"comparison": 3,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Target",
+							"sid": 606562211189785,
+							"behaviorType": "Rotate",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 104158810572356
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 787141187018783,
+							"parameters": {
+								"interval-seconds": "0.5"
+							}
+						},
+						{
+							"id": "is-enabled",
+							"objectClass": "Target",
+							"sid": 673569151202414,
+							"behaviorType": "Rotate"
+						}
+					],
+					"actions": [
+						{
+							"customAction": "Drop",
+							"objectClass": "Target",
+							"sid": 424817871378962
+						}
+					],
+					"sid": 983568038178511
+				}
+			],
+			"sid": 389414544658192
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Economy",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "MaxHungerTime",
+					"type": "number",
+					"initialValue": "30",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": true,
+					"sid": 289842870358602
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 439388198300601
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "HungerBar",
+							"sid": 287696672564802,
+							"parameters": {
+								"instance-variable": "MaxWidth",
+								"value": "HungerBar.Width"
+							}
+						}
+					],
+					"sid": 404544227895139
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 403184911439141
+						}
+					],
+					"actions": [
+						{
+							"customAction": "Add",
+							"objectClass": "HungerBar",
+							"sid": 572491583784485,
+							"parameters": [
+								"-(dt / MaxHungerTime) * 100"
+							]
+						}
+					],
+					"sid": 610077046132407
+				},
+				{
+					"aceType": "action",
+					"aceName": "Add",
+					"objectClass": "HungerBar",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Percentage",
+							"type": "number",
+							"initialValue": "100",
+							"comment": "",
+							"sid": 853680416070400
+						}
+					],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "HungerBar",
+							"sid": 850730918911142,
+							"parameters": {
+								"width": "min(HungerBar.Width + (Percentage / 100) *  HungerBar.MaxWidth, HungerBar.MaxWidth)"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "HungerBar",
+							"sid": 694502851485548,
+							"parameters": {
+								"width": "max(2, HungerBar.Width)"
+							}
+						}
+					],
+					"sid": 734703896060681,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-width",
+									"objectClass": "HungerBar",
+									"sid": 274166347955000,
+									"parameters": {
+										"comparison": 4,
+										"width": "HungerBar.MaxWidth / 2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "HungerBar",
+									"sid": 167472893680941,
+									"parameters": {
+										"animation": "\"Green\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 109439550300289
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-width",
+									"objectClass": "HungerBar",
+									"sid": 637155681830611,
+									"parameters": {
+										"comparison": 3,
+										"width": "HungerBar.MaxWidth / 2"
+									}
+								},
+								{
+									"id": "compare-width",
+									"objectClass": "HungerBar",
+									"sid": 221510317566596,
+									"parameters": {
+										"comparison": 4,
+										"width": "HungerBar.MaxWidth / 4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "HungerBar",
+									"sid": 678991720414937,
+									"parameters": {
+										"animation": "\"Orange\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 851311414691021
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-width",
+									"objectClass": "HungerBar",
+									"sid": 151479641629879,
+									"parameters": {
+										"comparison": 3,
+										"width": "HungerBar.MaxWidth / 4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "HungerBar",
+									"sid": 234687578355665,
+									"parameters": {
+										"animation": "\"Red\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 193251451740899
+						}
+					]
+				},
+				{
+					"aceType": "action",
+					"aceName": "Drop",
+					"objectClass": "Target",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Target",
+							"sid": 529945355387747,
+							"parameters": {
+								"object": "Fruit",
+								"layer": "\"Features\"",
+								"image-point": "\"Dropper\"",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Fruit",
+							"sid": 323677665180605,
+							"parameters": {
+								"animation": "choose(\"Blueberry\", \"Blueberry\",  \"Blueberry\", \"Purpleberry\", \"Purpleberry\", \"Hazelberry\")",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 717219657020900
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Ghost",
+							"sid": 323735509319667,
+							"parameters": {
+								"object": "Money"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "Consume",
+							"objectClass": "Money",
+							"sid": 339040559872258
+						}
+					],
+					"sid": 944200391561711,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Score",
+									"sid": 534048157281769,
+									"parameters": {
+										"instance-variable": "Ghosts"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Score",
+									"sid": 789649490040415,
+									"parameters": {
+										"text": "int(Score.Text) + 50"
+									}
+								}
+							],
+							"sid": 101946363375676
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Pacman",
+							"sid": 283228309227096,
+							"parameters": {
+								"object": "Money"
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "Consume",
+							"objectClass": "Money",
+							"sid": 560430483310996
+						}
+					],
+					"sid": 841985023132280,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Score",
+									"sid": 842412539246031,
+									"parameters": {
+										"instance-variable": "Ghosts"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Score",
+									"sid": 638732196226616,
+									"parameters": {
+										"text": "int(Score.Text) + 50"
+									}
+								}
+							],
+							"sid": 814637573871777
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Pacman",
+									"sid": 877839063014517,
+									"parameters": {
+										"child": "HungerBar",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "Add",
+									"objectClass": "HungerBar",
+									"sid": 332041281952290,
+									"parameters": [
+										"20"
+									]
+								}
+							],
+							"sid": 560816621849866
+						}
+					]
+				},
+				{
+					"aceType": "action",
+					"aceName": "Consume",
+					"objectClass": "Money",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Money",
+							"sid": 583070283758383,
+							"parameters": {
+								"object": "Particles",
+								"layer": "\"Features\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Money",
+							"sid": 265619271162259
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 461809168793214,
+							"parameters": {
+								"seconds": "2"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Particles",
+							"sid": 785027991590936
+						}
+					],
+					"sid": 245407647227376
+				}
+			],
+			"sid": 990765189720227
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Pacman",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Pacman",
+							"sid": 904021816255146,
+							"parameters": {
+								"object": "Bumper"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 777097732597451,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Bumper",
+									"sid": 385320691588388,
+									"parameters": {
+										"instance-variable": "TurnRight"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Pacman",
+									"sid": 847063030258299,
+									"parameters": {
+										"instance-variable": "GoingRight",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 843220876057286
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Bumper",
+									"sid": 428834947460951,
+									"parameters": {
+										"instance-variable": "TurnRight"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Pacman",
+									"sid": 817989116515844,
+									"parameters": {
+										"instance-variable": "GoingRight",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 803782844737496
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Pacman",
+							"sid": 745806214711656,
+							"parameters": {
+								"instance-variable": "GoingRight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Pacman",
+							"sid": 229327999436161,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "Pacman",
+							"sid": 790062166392541,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 696488980744323
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Pacman",
+							"sid": 781986723420715,
+							"parameters": {
+								"instance-variable": "GoingRight"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Pacman",
+							"sid": 575457351555280,
+							"parameters": {
+								"state": "mirrored"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "Pacman",
+							"sid": 238163576328968,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 727745522316711
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Bullet",
+							"sid": 181579826956021,
+							"parameters": {
+								"object": "Pacman"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Bullet",
+							"sid": 743906791147239
+						}
+					],
+					"sid": 968425408931379,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Pacman",
+									"sid": 100044568355807,
+									"parameters": {
+										"child": "HungerBar",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"customAction": "Add",
+									"objectClass": "HungerBar",
+									"sid": 228560624330224,
+									"parameters": [
+										"-5"
+									]
+								}
+							],
+							"sid": 571376862143812
+						}
+					]
+				}
+			],
+			"sid": 545662020519561
+		}
+	],
+	"sid": 210889906595872
+}

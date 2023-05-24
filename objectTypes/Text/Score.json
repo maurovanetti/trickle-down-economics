@@ -1,0 +1,17 @@
+{
+	"name": "Score",
+	"plugin-id": "Text",
+	"sid": 524908932324318,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Ghosts",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 254018617418581
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

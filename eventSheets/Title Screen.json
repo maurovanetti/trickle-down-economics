@@ -1,0 +1,39 @@
+{
+	"name": "Title Screen",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Common"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bullet",
+					"sid": 307072189299624,
+					"parameters": {
+						"object": "Target"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Bullet",
+					"sid": 228440172633850
+				},
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 612607962993114,
+					"parameters": {
+						"layout": "\"Main Screen\""
+					}
+				}
+			],
+			"sid": 909741445488482
+		}
+	],
+	"sid": 578148612561687
+}

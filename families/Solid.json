@@ -1,0 +1,22 @@
+{
+	"name": "Solid",
+	"plugin-id": "NinePatch",
+	"sid": 447116746506061,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 563314153950726
+		},
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 461327405700460
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Barrier"
+	]
+}

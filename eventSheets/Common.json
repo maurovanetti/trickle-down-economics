@@ -1,0 +1,635 @@
+{
+	"name": "Common",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Setup",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 278529403710754
+						}
+					],
+					"actions": [],
+					"sid": 584473541749551,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Eye",
+									"sid": 788236110305304,
+									"parameters": {
+										"object": "SetupArea"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Eye",
+									"sid": 818846577423332
+								}
+							],
+							"sid": 438715992724071
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Bullet",
+									"sid": 392992902370516,
+									"parameters": {
+										"object": "SetupArea"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Bullet",
+									"sid": 661002751832757
+								}
+							],
+							"sid": 173183456007396
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Fruit",
+									"sid": 315013791734489,
+									"parameters": {
+										"object": "SetupArea"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Fruit",
+									"sid": 449899292693670
+								}
+							],
+							"sid": 490236832816773
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Bullet",
+									"sid": 712209917020423,
+									"parameters": {
+										"object": "SetupArea"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Bullet",
+									"sid": 345171569996842
+								}
+							],
+							"sid": 229476130483803
+						}
+					]
+				}
+			],
+			"sid": 624681628282963
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Ghosts",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 223568824548554
+						}
+					],
+					"actions": [],
+					"sid": 943906949796908,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 133291622842381,
+									"parameters": {
+										"object": "Ghost"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 584339755121370,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Ghost",
+											"sid": 650604105874058,
+											"parameters": {
+												"object": "Eye",
+												"layer": "\"Features\"",
+												"image-point": "\"Left Eye\"",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "pin-to-object-imagepoint",
+											"objectClass": "Eye",
+											"sid": 988222178675100,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Ghost",
+												"image-point": "\"Right Eye\"",
+												"angle": false,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Eye",
+											"sid": 133641077170917,
+											"parameters": {
+												"instance-variable": "Right",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 243901530897128
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Ghost",
+											"sid": 461352178726880,
+											"parameters": {
+												"object": "Eye",
+												"layer": "\"Features\"",
+												"image-point": "\"Right Eye\"",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "pin-to-object-imagepoint",
+											"objectClass": "Eye",
+											"sid": 857425335037953,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Ghost",
+												"image-point": "\"Left Eye\"",
+												"angle": false,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Eye",
+											"sid": 346689564635324,
+											"parameters": {
+												"instance-variable": "Right",
+												"value": "true"
+											}
+										},
+										{
+											"id": "stop-animation",
+											"objectClass": "Eye",
+											"sid": 778802459551761
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 304589244241876,
+											"parameters": {
+												"seconds": "0.05"
+											}
+										},
+										{
+											"id": "start-animation",
+											"objectClass": "Eye",
+											"sid": 439585427032829,
+											"parameters": {
+												"from": "current-frame"
+											}
+										}
+									],
+									"sid": 679846221980981
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Ghost",
+							"sid": 669192330744889,
+							"parameters": {
+								"instance-variable": "GoingRight"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Ghost",
+							"sid": 251645635485865,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "Ghost",
+							"sid": 298281347123728,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 854574390313040
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Ghost",
+							"sid": 585496447960983,
+							"parameters": {
+								"instance-variable": "GoingRight"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Ghost",
+							"sid": 547443696989400,
+							"parameters": {
+								"state": "mirrored"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "Ghost",
+							"sid": 974635984085217,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 162504924533440
+				},
+				{
+					"aceType": "action",
+					"aceName": "Shoot",
+					"objectClass": "Ghost",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "custom-ace-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Avatar",
+							"sid": 479333492757317,
+							"parameters": {
+								"object": "AvatarBullet",
+								"layer": "\"Combat\"",
+								"image-point": "\"Shooter\"",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "AvatarBullet",
+							"sid": 340670173441765,
+							"parameters": {
+								"angle": "ShootDirection.Angle"
+							}
+						}
+					],
+					"sid": 196686469929684,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-between-angles",
+									"objectClass": "AvatarBullet",
+									"sid": 830136511930796,
+									"parameters": {
+										"first-angle": "45",
+										"second-angle": "135"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "Avatar",
+									"sid": 966132598265146,
+									"behaviorType": "Platform",
+									"parameters": {
+										"control": "jump"
+									}
+								}
+							],
+							"sid": 344625665856577
+						}
+					]
+				}
+			],
+			"sid": 498566091721190
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 504565944119004
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "ShootDirection",
+							"sid": 840393821896201,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Shoot",
+								"image-point": "\"Pivot\"",
+								"angle": false,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 113752178071240
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 382397230459992,
+							"parameters": {
+								"object": "Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Button",
+							"sid": 275825456668996,
+							"parameters": {
+								"animation": "\"On\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 242140147092672,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 354269055975678,
+									"parameters": {
+										"instance-variable": "Command",
+										"comparison": 0,
+										"value": "\"Right\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Avatar",
+									"sid": 413712689942087,
+									"parameters": {
+										"instance-variable": "GoingRight",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 843202308434840
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button",
+									"sid": 903938643089452,
+									"parameters": {
+										"instance-variable": "Command",
+										"comparison": 0,
+										"value": "\"Left\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Avatar",
+									"sid": 373895608954738,
+									"parameters": {
+										"instance-variable": "GoingRight",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 943415710453298
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 382558717815074,
+							"parameters": {
+								"object": "Button"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Button",
+							"sid": 542593242017179,
+							"parameters": {
+								"animation": "\"Off\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 688839139901876
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 321626283012698,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Avatar",
+							"sid": 801141336218288,
+							"parameters": {
+								"instance-variable": "GoingRight",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 359076034342209
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 498729177713978,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Avatar",
+							"sid": 575521320775096,
+							"parameters": {
+								"instance-variable": "GoingRight",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 230185721812127
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 724398208364968,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "Shoot",
+							"objectClass": "Avatar",
+							"customActionObjectClass": "Ghost",
+							"sid": 446995361247841
+						}
+					],
+					"sid": 509120576332666
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 955692374387780,
+							"parameters": {
+								"object": "Button"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 420294842181206,
+							"parameters": {
+								"instance-variable": "Command",
+								"comparison": 0,
+								"value": "\"Shoot\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"customAction": "Shoot",
+							"objectClass": "Avatar",
+							"customActionObjectClass": "Ghost",
+							"sid": 987746599852473
+						}
+					],
+					"sid": 603162066233442
+				}
+			],
+			"sid": 738377065077311
+		}
+	],
+	"sid": 220211692298347
+}
