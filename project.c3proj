@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
@@ -161,7 +168,8 @@
 			"Nest",
 			"Brick",
 			"GhostBullet",
-			"Rainbow"
+			"Rainbow",
+			"Audio"
 		],
 		"subfolders": [
 			{
@@ -228,7 +236,104 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "coin.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 228033198631048,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "low_coin.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 959474788467953,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "emulate_shoot.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 495753560871229,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "shoot.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 870742350524410,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "death.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 906562678300813,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "jump.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 757405931534112,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "emulate_jump.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 190431436644972,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "roll.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 711263076609359,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "evolve.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 198214634007414,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "turn.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 655793779147795,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "hurt.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 971894377940600,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "bump.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 935344239011349,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"music": {

@@ -76,6 +76,18 @@
 							"parameters": {
 								"acceleration": "-180 * SpinningFactor"
 							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 994955908496890,
+							"parameters": {
+								"audio-file": "roll",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 720277819793033
@@ -133,6 +145,34 @@
 						}
 					],
 					"sid": 983568038178511
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "GhostBullet",
+							"sid": 391077096631442,
+							"parameters": {
+								"object": "Solid"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 701859839897563,
+							"parameters": {
+								"audio-file": "bump",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						}
+					],
+					"sid": 995682292931774
 				}
 			],
 			"sid": 389414544658192
@@ -478,6 +518,18 @@
 							"customAction": "Consume",
 							"objectClass": "Money",
 							"sid": 339040559872258
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 801393857327017,
+							"parameters": {
+								"audio-file": "coin",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 944200391561711,
@@ -525,6 +577,18 @@
 							"customAction": "Consume",
 							"objectClass": "Money",
 							"sid": 560430483310996
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 293021117792629,
+							"parameters": {
+								"audio-file": "low_coin",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
 						}
 					],
 					"sid": 841985023132280,
@@ -784,6 +848,18 @@
 					],
 					"actions": [
 						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 907470806647116,
+							"parameters": {
+								"audio-file": "hurt",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
 							"id": "destroy",
 							"objectClass": "GhostBullet",
 							"sid": 743906791147239
@@ -808,7 +884,7 @@
 								{
 									"customAction": "Add",
 									"objectClass": "HungerBar",
-									"sid": 228560624330224,
+									"sid": 253105134979325,
 									"parameters": [
 										"-5"
 									]
@@ -846,6 +922,18 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 635883360716155,
+									"parameters": {
+										"audio-file": "evolve",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
 								{
 									"id": "flash",
 									"objectClass": "Pacman",
@@ -896,6 +984,18 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 117829341329110,
+									"parameters": {
+										"audio-file": "death",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
 								{
 									"id": "flash",
 									"objectClass": "Ghost",

@@ -297,6 +297,27 @@
 							"initialValue": "0",
 							"comment": "",
 							"sid": 571732758194076
+						},
+						{
+							"name": "ShootSfx",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 842065425069915
+						},
+						{
+							"name": "JumpSfx",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 866852129589483
+						},
+						{
+							"name": "Volume",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 252230796392761
 						}
 					],
 					"eventType": "custom-ace-block",
@@ -317,6 +338,19 @@
 							"sid": 381613733642220,
 							"parameters": {
 								"seconds": "Delay"
+							}
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 649848281353023,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "ShootSfx",
+								"loop": "not-looping",
+								"volume": "Volume",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
 							}
 						},
 						{
@@ -372,6 +406,19 @@
 									"parameters": {
 										"control": "jump"
 									}
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 427127935512574,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "JumpSfx",
+										"loop": "not-looping",
+										"volume": "Volume",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
 								}
 							],
 							"sid": 344625665856577
@@ -394,9 +441,12 @@
 							"customAction": "Shoot",
 							"objectClass": "Avatar",
 							"customActionObjectClass": "Ghost",
-							"sid": 873687979854047,
+							"sid": 356619956519410,
 							"parameters": [
 								"ShootDirection.Angle",
+								"0",
+								"\"shoot\"",
+								"\"jump\"",
 								"0"
 							]
 						}
@@ -422,10 +472,13 @@
 									"customAction": "Shoot",
 									"objectClass": "Worker",
 									"customActionObjectClass": "Ghost",
-									"sid": 634878222757343,
+									"sid": 742580247187676,
 									"parameters": [
 										"ShootDirection.Angle",
-										"0.5"
+										"0.5",
+										"\"emulate_shoot\"",
+										"\"emulate_jump\"",
+										"-10"
 									]
 								}
 							],
@@ -470,6 +523,16 @@
 			"sid": 498566091721190
 		},
 		{
+			"eventType": "variable",
+			"name": "WasGoingRight",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 516241038232158
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Controls",
@@ -501,7 +564,140 @@
 							}
 						}
 					],
-					"sid": 546292851047301
+					"sid": 546292851047301,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Avatar",
+									"sid": 662633498540338,
+									"parameters": {
+										"instance-variable": "GoingRight"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 365420750460613,
+									"parameters": {
+										"variable": "WasGoingRight",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 444745412264470
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 288082764256610
+						}
+					],
+					"actions": [],
+					"sid": 434719072616361,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Avatar",
+									"sid": 821720436358461,
+									"parameters": {
+										"instance-variable": "GoingRight"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 567160673188844,
+									"parameters": {
+										"variable": "WasGoingRight"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 365582039862624,
+									"parameters": {
+										"variable": "WasGoingRight",
+										"value": "true"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 269303467994495,
+									"parameters": {
+										"audio-file": "turn",
+										"loop": "not-looping",
+										"volume": "-5",
+										"stereo-pan": "80",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 950884152726699
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Avatar",
+									"sid": 395220445417944,
+									"parameters": {
+										"instance-variable": "GoingRight"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 576172890618715,
+									"parameters": {
+										"variable": "WasGoingRight"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 907698584604801,
+									"parameters": {
+										"variable": "WasGoingRight",
+										"value": "false"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 915848406429512,
+									"parameters": {
+										"audio-file": "turn",
+										"loop": "not-looping",
+										"volume": "-5",
+										"stereo-pan": "-80",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 400182710379726
+						}
+					]
 				},
 				{
 					"eventType": "group",
