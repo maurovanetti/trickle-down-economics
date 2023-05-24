@@ -93,9 +93,9 @@
 						{
 							"id": "every-x-seconds",
 							"objectClass": "System",
-							"sid": 787141187018783,
+							"sid": 641705617900127,
 							"parameters": {
-								"interval-seconds": "0.5"
+								"interval-seconds": "0.25"
 							}
 						},
 						{
@@ -124,6 +124,16 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "variable",
+					"name": "MaxPacmanSpeed",
+					"type": "number",
+					"initialValue": "330",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 314058441633577
+				},
 				{
 					"eventType": "variable",
 					"name": "MaxHungerTime",
@@ -302,6 +312,97 @@
 								}
 							],
 							"sid": 193251451740899
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-parent",
+									"objectClass": "HungerBar",
+									"sid": 380672035243883,
+									"parameters": {
+										"parent": "Pacman",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-speed",
+									"objectClass": "Pacman",
+									"sid": 593521943380001,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-speed": "max(MaxPacmanSpeed / 10, (HungerBar.Width / HungerBar.MaxWidth) * MaxPacmanSpeed)"
+									}
+								}
+							],
+							"sid": 457718601539655,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-animation-playing",
+											"objectClass": "HungerBar",
+											"sid": 830632075549604,
+											"parameters": {
+												"animation": "\"Red\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Pacman",
+											"sid": 157850749691317,
+											"parameters": {
+												"opacity": "50"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Pacman",
+											"sid": 345536805649902,
+											"parameters": {
+												"instance-variable": "Vulnerable",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 212696688340042
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 393769667070016
+										}
+									],
+									"actions": [
+										{
+											"id": "set-opacity",
+											"objectClass": "Pacman",
+											"sid": 995836713666437,
+											"parameters": {
+												"opacity": "100"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Pacman",
+											"sid": 552622680506978,
+											"parameters": {
+												"instance-variable": "Vulnerable",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 613249673465621
+								}
+							]
 						}
 					]
 				},
@@ -694,6 +795,104 @@
 								}
 							],
 							"sid": 571376862143812
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Pacman",
+							"sid": 106434388265217,
+							"parameters": {
+								"object": "Ghost"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 460241886471948,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Pacman",
+									"sid": 578895235634781,
+									"parameters": {
+										"instance-variable": "Vulnerable"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "flash",
+									"objectClass": "Pacman",
+									"sid": 676195669905300,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "1.0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 560757173963990,
+									"parameters": {
+										"seconds": "1.0"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Pacman",
+									"sid": 854327065941495
+								}
+							],
+							"sid": 500992176796242
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Pacman",
+									"sid": 129984744143449,
+									"parameters": {
+										"instance-variable": "Vulnerable"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "flash",
+									"objectClass": "Ghost",
+									"sid": 455468856875612,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "1.0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 522354064979244,
+									"parameters": {
+										"seconds": "1.0"
+									}
+								},
+								{
+									"customAction": "Respawn",
+									"objectClass": "Ghost",
+									"sid": 281471966994767
+								}
+							],
+							"sid": 128924571342161
 						}
 					]
 				}

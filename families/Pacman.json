@@ -9,6 +9,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 807961514612342
+		},
+		{
+			"name": "Vulnerable",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 211752340853198
 		}
 	],
 	"behaviorTypes": [
@@ -16,6 +23,11 @@
 			"behaviorId": "Platform",
 			"name": "Platform",
 			"sid": 784876195251145
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 839415652790716
 		}
 	],
 	"effectTypes": [],

@@ -17,6 +17,6 @@
 	],
 	"effectTypes": [],
 	"members": [
-		"AvatarBullet"
+		"GhostBullet"
 	]
 }

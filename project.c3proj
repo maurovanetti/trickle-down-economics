@@ -57,6 +57,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Physics",
 			"name": "Physics",
 			"author": "Scirra",
@@ -125,7 +132,7 @@
 			"Platform",
 			"Avatar",
 			"Eye",
-			"AvatarBullet",
+			"GhostBullet",
 			"Target",
 			"Barrier",
 			"Fruit",
@@ -136,7 +143,10 @@
 			"BourgeoisHat",
 			"Bumper",
 			"BourgeoisIcon",
-			"HungerBar"
+			"HungerBar",
+			"Worker",
+			"Nest",
+			"Brick"
 		],
 		"subfolders": [
 			{

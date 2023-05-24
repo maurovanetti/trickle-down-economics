@@ -9,6 +9,13 @@
 			"desc": "true = right, false = left",
 			"show": true,
 			"sid": 730788325934074
+		},
+		{
+			"name": "BulletAnimation",
+			"type": "string",
+			"desc": "",
+			"show": true,
+			"sid": 816349147246323
 		}
 	],
 	"behaviorTypes": [
@@ -21,10 +28,16 @@
 			"behaviorId": "wrap",
 			"name": "Wrap",
 			"sid": 526771537981070
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 400304296842587
 		}
 	],
 	"effectTypes": [],
 	"members": [
-		"Avatar"
+		"Avatar",
+		"Worker"
 	]
 }
