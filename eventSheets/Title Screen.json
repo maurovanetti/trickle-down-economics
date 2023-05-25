@@ -16,6 +16,11 @@
 			],
 			"actions": [
 				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 345405441497269
+				},
+				{
 					"id": "stop-all",
 					"objectClass": "Audio",
 					"sid": 828361879909594

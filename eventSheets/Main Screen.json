@@ -1098,6 +1098,37 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 591693781625922
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 351103493120305,
+							"parameters": {
+								"variable": "Capitalism",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 332041556931401,
+							"parameters": {
+								"variable": "Ready",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 889874954245309
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "compare-boolean-eventvar",
 							"objectClass": "System",
 							"sid": 658633898643770,
