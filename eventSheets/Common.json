@@ -533,6 +533,16 @@
 			"sid": 516241038232158
 		},
 		{
+			"eventType": "variable",
+			"name": "Inactive",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 357006133523546
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Controls",
@@ -746,6 +756,15 @@
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 818019516088547,
+									"parameters": {
+										"variable": "Inactive",
+										"value": "false"
+									}
+								},
+								{
 									"id": "set-animation",
 									"objectClass": "Button",
 									"sid": 729117565276274,
@@ -875,6 +894,15 @@
 										"instance-variable": "GoingRight",
 										"value": "true"
 									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 555488438412469,
+									"parameters": {
+										"variable": "Inactive",
+										"value": "false"
+									}
 								}
 							],
 							"sid": 708208837916075,
@@ -927,6 +955,15 @@
 									"sid": 431333586987461,
 									"parameters": {
 										"instance-variable": "GoingRight",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 380983846208146,
+									"parameters": {
+										"variable": "Inactive",
 										"value": "false"
 									}
 								}
@@ -1020,6 +1057,15 @@
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 765653363447761,
+									"parameters": {
+										"variable": "Inactive",
+										"value": "false"
+									}
+								},
+								{
 									"customAction": "OpenFire",
 									"objectClass": "Avatar",
 									"sid": 368347903014111
@@ -1064,6 +1110,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 342880115039138,
+									"parameters": {
+										"variable": "Inactive",
+										"value": "false"
+									}
+								},
 								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Avatar",
@@ -1134,6 +1189,15 @@
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 676822808902791,
+									"parameters": {
+										"variable": "Inactive",
+										"value": "false"
+									}
+								},
+								{
 									"id": "set-boolean-instvar",
 									"objectClass": "Avatar",
 									"sid": 676928861923496,
@@ -1188,6 +1252,15 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 928420895382976,
+									"parameters": {
+										"variable": "Inactive",
+										"value": "false"
+									}
+								},
 								{
 									"customAction": "OpenFire",
 									"objectClass": "Avatar",
@@ -1248,6 +1321,399 @@
 				}
 			],
 			"sid": 738377065077311
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Worms",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 995180116778204
+						},
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 298323916573136,
+							"parameters": {
+								"count": "50"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 333179257262947,
+							"parameters": {
+								"object-to-create": "Worm",
+								"layer": "\"Background\"",
+								"x": "random(0, LayoutWidth)",
+								"y": "random(0, LayoutHeight)",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Worm",
+							"sid": 161477839574401,
+							"parameters": {
+								"instance-variable": "Direction",
+								"value": "int(random(0, 4))"
+							}
+						}
+					],
+					"sid": 639461019952046
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 515874950673082,
+							"parameters": {
+								"interval-seconds": "0.97"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 217896895123908,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 122744439266144,
+									"parameters": {
+										"object": "Worm"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Worm",
+									"sid": 140145555393065,
+									"parameters": {
+										"instance-variable": "NextDirection",
+										"value": "int(random(0, 4))"
+									}
+								}
+							],
+							"sid": 915687195350708,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Worm",
+											"sid": 383980325318031,
+											"parameters": {
+												"instance-variable": "Direction",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Worm",
+											"sid": 480190326522997,
+											"parameters": {
+												"instance-variable": "NextDirection",
+												"comparison": 1,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Worm",
+											"sid": 527016767990206,
+											"parameters": {
+												"instance-variable": "Direction",
+												"value": "Worm.NextDirection"
+											}
+										}
+									],
+									"sid": 845226815723813
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Worm",
+											"sid": 585017089961944,
+											"parameters": {
+												"instance-variable": "Direction",
+												"comparison": 0,
+												"value": "1"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Worm",
+											"sid": 487895034066903,
+											"parameters": {
+												"instance-variable": "NextDirection",
+												"comparison": 1,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Worm",
+											"sid": 134906632824953,
+											"parameters": {
+												"instance-variable": "Direction",
+												"value": "Worm.NextDirection"
+											}
+										}
+									],
+									"sid": 640237661533661
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Worm",
+											"sid": 912347726837021,
+											"parameters": {
+												"instance-variable": "Direction",
+												"comparison": 0,
+												"value": "2"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Worm",
+											"sid": 670659195791818,
+											"parameters": {
+												"instance-variable": "NextDirection",
+												"comparison": 1,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Worm",
+											"sid": 626071493688154,
+											"parameters": {
+												"instance-variable": "Direction",
+												"value": "Worm.NextDirection"
+											}
+										}
+									],
+									"sid": 234055378987352
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Worm",
+											"sid": 809814425264292,
+											"parameters": {
+												"instance-variable": "Direction",
+												"comparison": 0,
+												"value": "3"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Worm",
+											"sid": 231701801895617,
+											"parameters": {
+												"instance-variable": "NextDirection",
+												"comparison": 1,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Worm",
+											"sid": 895208257671452,
+											"parameters": {
+												"instance-variable": "Direction",
+												"value": "Worm.NextDirection"
+											}
+										}
+									],
+									"sid": 539966158477994
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Worm",
+							"sid": 166369613558303,
+							"parameters": {
+								"instance-variable": "Direction",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Worm",
+							"sid": 306509310459036,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 447686560995111
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Worm",
+							"sid": 710970596353632,
+							"parameters": {
+								"instance-variable": "Direction",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Worm",
+							"sid": 362061237975003,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "down"
+							}
+						}
+					],
+					"sid": 670441729549355
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Worm",
+							"sid": 782985541536357,
+							"parameters": {
+								"instance-variable": "Direction",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Worm",
+							"sid": 819084510231958,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 398993151180872
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Worm",
+							"sid": 388006429817335,
+							"parameters": {
+								"instance-variable": "Direction",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "Worm",
+							"sid": 719245690783485,
+							"behaviorType": "8Direction",
+							"parameters": {
+								"control": "up"
+							}
+						}
+					],
+					"sid": 838915234006221
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 772748888774137,
+							"parameters": {
+								"interval-seconds": "0.1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Worm",
+							"sid": 731673279884746,
+							"parameters": {
+								"object": "Trail",
+								"layer": "\"Background\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 293438261815820,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Trail",
+							"sid": 113119709177502
+						}
+					],
+					"sid": 613611269137662
+				}
+			],
+			"sid": 684643641696453
 		}
 	],
 	"sid": 220211692298347

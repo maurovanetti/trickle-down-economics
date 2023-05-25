@@ -1255,6 +1255,10 @@
 								"stereo-pan": "0",
 								"tag-optional": "\"fast\""
 							}
+						},
+						{
+							"callFunction": "RestartIfInactive",
+							"sid": 973111614992813
 						}
 					],
 					"sid": 728961460194021
@@ -1295,9 +1299,74 @@
 								"stereo-pan": "0",
 								"tag-optional": "\"slow\""
 							}
+						},
+						{
+							"callFunction": "RestartIfInactive",
+							"sid": 513709959250497
 						}
 					],
 					"sid": 666958734332026
+				},
+				{
+					"functionName": "RestartIfInactive",
+					"functionCopyPicked": false,
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 410107102741893,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 729466084499218,
+									"parameters": {
+										"variable": "Inactive"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 687876417589523,
+									"parameters": {
+										"layout": "Title Screen"
+									}
+								}
+							],
+							"sid": 910927320029645
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 677851669455459
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 774072622380149,
+									"parameters": {
+										"variable": "Inactive",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 632401745850977
+						}
+					]
 				}
 			],
 			"sid": 608615572519871

@@ -71,6 +71,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "EightDir",
+			"name": "8 Direction",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Flash",
 			"name": "Flash",
 			"author": "Scirra",
@@ -169,7 +176,9 @@
 			"Brick",
 			"GhostBullet",
 			"Rainbow",
-			"Audio"
+			"Audio",
+			"Worm",
+			"Trail"
 		],
 		"subfolders": [
 			{

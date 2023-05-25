@@ -1,0 +1,63 @@
+{
+	"name": "Worm",
+	"plugin-id": "Sprite",
+	"sid": 452543657701942,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Direction",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 760744002948344
+		},
+		{
+			"name": "NextDirection",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 442476699442128
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "wrap",
+			"name": "Wrap",
+			"sid": 922731353267242
+		},
+		{
+			"behaviorId": "EightDir",
+			"name": "8Direction",
+			"sid": 285285540811107
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 3,
+						"height": 3,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 791426,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 408121776277976,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
