@@ -26,6 +26,22 @@
 						"stereo-pan": "0",
 						"tag-optional": "\"intro\""
 					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 407428270908623,
+					"parameters": {
+						"audio-file": "pescatore"
+					}
+				},
+				{
+					"id": "preload",
+					"objectClass": "Audio",
+					"sid": 122578178151383,
+					"parameters": {
+						"audio-file": "pescatore-frettoloso"
+					}
 				}
 			],
 			"sid": 244914436526359

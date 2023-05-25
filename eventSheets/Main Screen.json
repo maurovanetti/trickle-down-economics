@@ -22,6 +22,16 @@
 			"sid": 741507199133125
 		},
 		{
+			"eventType": "variable",
+			"name": "Ready",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 953744512178476
+		},
+		{
 			"eventType": "include",
 			"includeSheet": "Common"
 		},
@@ -222,6 +232,14 @@
 								"instance-variable": "MaxWidth",
 								"value": "HungerBar.Width"
 							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "HungerBar",
+							"sid": 468143886692089,
+							"parameters": {
+								"visibility": "invisible"
+							}
 						}
 					],
 					"sid": 404544227895139
@@ -233,6 +251,14 @@
 							"id": "every-tick",
 							"objectClass": "System",
 							"sid": 403184911439141
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 811168151889858,
+							"parameters": {
+								"variable": "Ready"
+							}
 						}
 					],
 					"actions": [
@@ -633,6 +659,23 @@
 							],
 							"actions": [
 								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 162188145572793,
+									"parameters": {
+										"variable": "Ready",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "HungerBar",
+									"sid": 402609691411996,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
 									"customAction": "Add",
 									"objectClass": "HungerBar",
 									"sid": 332041281952290,
@@ -871,6 +914,14 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 556689718910473,
+									"parameters": {
+										"variable": "Ready"
+									}
+								},
+								{
 									"id": "pick-children",
 									"objectClass": "Pacman",
 									"sid": 100044568355807,
@@ -912,6 +963,14 @@
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 859716005009273,
+									"parameters": {
+										"variable": "Ready"
+									}
+								},
 								{
 									"id": "is-boolean-instance-variable-set",
 									"objectClass": "Pacman",
