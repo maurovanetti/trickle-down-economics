@@ -332,12 +332,45 @@
 					"file-info": {
 						"purpose": "none"
 					}
+				},
+				{
+					"name": "boom.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 674572490591179,
+					"file-info": {
+						"purpose": "none"
+					}
 				}
 			],
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "pescatore.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 585810084906743,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "pescatore-frettoloso.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 560728139688961,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "marcia-dei-cattivi.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 667358707745637,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"video": {

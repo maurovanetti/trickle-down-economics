@@ -1122,6 +1122,126 @@
 				}
 			],
 			"sid": 729044339860818
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Soundtrack",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 983223109837930
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 685577884944579
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 816714059401783,
+							"parameters": {
+								"audio-file": "pescatore",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"slow\""
+							}
+						}
+					],
+					"sid": 449197517277382
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-ended",
+							"objectClass": "Audio",
+							"sid": 494906059725185,
+							"parameters": {
+								"tag": "\"slow\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 215324217324182,
+							"parameters": {
+								"audio-file": "boom",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 801531257711143,
+							"parameters": {
+								"audio-file": "pescatore-frettoloso",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"fast\""
+							}
+						}
+					],
+					"sid": 728961460194021
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-ended",
+							"objectClass": "Audio",
+							"sid": 202265190093130,
+							"parameters": {
+								"tag": "\"fast\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 447883510477746,
+							"parameters": {
+								"audio-file": "boom",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 971056844708254,
+							"parameters": {
+								"audio-file": "pescatore",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"slow\""
+							}
+						}
+					],
+					"sid": 666958734332026
+				}
+			],
+			"sid": 608615572519871
 		}
 	],
 	"sid": 210889906595872

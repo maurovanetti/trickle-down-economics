@@ -9,6 +9,31 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 804097179331729
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 313026679189758,
+					"parameters": {
+						"audio-file": "marcia-dei-cattivi",
+						"loop": "looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"intro\""
+					}
+				}
+			],
+			"sid": 244914436526359
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "on-collision-with-another-object",
 					"objectClass": "GhostBullet",
 					"sid": 817090020807240,
